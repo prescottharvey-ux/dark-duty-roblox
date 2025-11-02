@@ -1,0 +1,1 @@
+aftman run stylua src

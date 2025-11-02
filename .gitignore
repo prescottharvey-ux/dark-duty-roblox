@@ -1,0 +1,20 @@
+# Roblox binaries
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rblx
+
+# Wally packages
+Packages/
+
+# Build artifacts
+/build/
+/Build/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
+# Node / misc
+node_modules/
+.env
