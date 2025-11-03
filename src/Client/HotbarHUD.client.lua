@@ -55,8 +55,7 @@ local REF = Remotes:FindFirstChild 'RemoteEvent'
 local EquipmentQuery: RemoteFunction? = RFF
     and (RFF:FindFirstChild 'EquipmentQuery' :: RemoteFunction?)
   or nil
-local EquipRequest: RemoteFunction? = RFF
-    and (RFF:FindFirstChild 'EquipRequest' :: RemoteFunction?)
+local EquipRequest: RemoteFunction? = RFF and (RFF:FindFirstChild 'EquipRequest' :: RemoteFunction?)
   or nil
 local UnequipRequest: RemoteFunction? = RFF
     and (RFF:FindFirstChild 'UnequipRequest' :: RemoteFunction?)
@@ -81,7 +80,12 @@ local DurUI: any = (function()
     return mod
   end
   warn '[HotbarHUD] DurabilityUI not found; durability bars disabled.'
-  return { Attach = function() end, Detach = function() end, Set = function() end, Bind = function() end }
+  return {
+    Attach = function() end,
+    Detach = function() end,
+    Set = function() end,
+    Bind = function() end,
+  }
 end)()
 
 -- ===== UI scaffold =====

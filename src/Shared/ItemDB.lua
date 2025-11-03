@@ -162,7 +162,12 @@ local Items: { [string]: Item } = {
     hotbar = true,
     equip = { slot = 'hand', twoHanded = false },
     grip = CFrame.new(0, -0.40, -0.20) * CFrame.Angles(0, math.rad(90), 0),
-    durability = { type = 'weapon', max = 120, costs = { swing = 1, hit = 1 }, breaksWhenZero = false },
+    durability = {
+      type = 'weapon',
+      max = 120,
+      costs = { swing = 1, hit = 1 },
+      breaksWhenZero = false,
+    },
   },
   sword_short = {
     displayName = 'Short Sword',
@@ -171,7 +176,12 @@ local Items: { [string]: Item } = {
     weight = 2,
     hotbar = true,
     equip = { slot = 'hand', twoHanded = false },
-    durability = { type = 'weapon', max = 140, costs = { swing = 1, hit = 2 }, breaksWhenZero = false },
+    durability = {
+      type = 'weapon',
+      max = 140,
+      costs = { swing = 1, hit = 2 },
+      breaksWhenZero = false,
+    },
   },
   shield_wood = {
     displayName = 'Wooden Shield',
@@ -221,7 +231,12 @@ local Items: { [string]: Item } = {
     weight = 2,
     hotbar = true,
     equip = { slot = 'hand', twoHanded = true },
-    durability = { type = 'weapon', max = 130, costs = { swing = 1, hit = 1 }, breaksWhenZero = false },
+    durability = {
+      type = 'weapon',
+      max = 130,
+      costs = { swing = 1, hit = 1 },
+      breaksWhenZero = false,
+    },
   },
   Lockpick = {
     displayName = 'Lockpick',

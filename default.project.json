@@ -1,26 +1,28 @@
 {
-  "name": "Dark Duty",
+  "name": "DarkDuty",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
-      "Shared": {
-        "$path": "src/Shared"
+      "$className": "ReplicatedStorage",
+      "Modules": { "$path": "src/Shared" },
+      "Remotes": {
+        "$className": "Folder",
+        "RemoteEvent": { "$className": "Folder" },
+        "RemoteFunction": { "$className": "Folder" }
       },
-      "Packages": {
-        "$path": "Packages",
-        "$ignoreUnknownInstances": true
-      }
+      "Config": { "$path": "src/ReplicatedStorage/Config" },
+      "Models": { "$path": "src/ReplicatedStorage/Models" },
+      "Shims":  { "$path": "src/ReplicatedStorage/Shims" }
     },
     "ServerScriptService": {
-      "Server": {
-        "$path": "src/Server"
-      }
+      "$className": "ServerScriptService",
+      "Server": { "$path": "src/Server" }
     },
     "StarterPlayer": {
+      "$className": "StarterPlayer",
       "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/Client"
-        }
+        "$className": "StarterPlayerScripts",
+        "Client": { "$path": "src/Client" }
       }
     }
   }

@@ -206,8 +206,11 @@ end
 
 -- ---------- State & helpers ----------
 type HotbarCell = string | { id: string, uid: string? }
-type Snapshot =
-  { equipment: { [string]: any }?, hotbar: { [number]: HotbarCell? }?, carried: { any }? }
+type Snapshot = {
+  equipment: { [string]: any }?,
+  hotbar: { [number]: HotbarCell? }?,
+  carried: { any }?,
+}
 
 local snap: Snapshot = { equipment = {}, hotbar = {}, carried = {} }
 

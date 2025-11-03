@@ -3,6 +3,7 @@ local CAS = game:GetService 'ContextActionService'
 local UIS = game:GetService 'UserInputService'
 local Players = game:GetService 'Players'
 local me = Players.LocalPlayer
+local playerGui = Players.LocalPlayer:WaitForChild 'PlayerGui'
 
 local function dumpCAS()
   if CAS.GetAllBoundActionInfo then
@@ -32,6 +33,21 @@ local function warnModalGuis()
   for _, g in ipairs(pg:GetChildren()) do
     if g:IsA 'ScreenGui' and g.Enabled and g.Modal then
       warn('[GUI] Modal ScreenGui eating input: ', g:GetFullName())
+    end
+  end
+end
+
+local function hasModal(screenGui: ScreenGui): boolean
+  local ok, value = pcall(function()
+    return screenGui.Modal
+  end)
+  return ok and value == true
+end
+
+for _, gui in ipairs(playerGui:GetChildren()) do
+  if gui:IsA 'ScreenGui' then
+    if gui.Name ~= 'Freecam' and hasModal(gui) then
+      -- your logging here
     end
   end
 end
