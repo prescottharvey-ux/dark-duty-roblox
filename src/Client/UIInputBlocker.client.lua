@@ -104,9 +104,36 @@ local function recompute()
   setBlocked(modalOpen())
 end
 
+local function watchGui(gui: ScreenGui)
+  if gui.Name ~= 'StashUI' and gui.Name ~= 'PaperDollUI' then
+    return
+  end
+
+  gui:GetPropertyChangedSignal('Enabled'):Connect(recompute)
+  if gui.Destroying then
+    gui.Destroying:Connect(recompute)
+  else
+    gui.AncestryChanged:Connect(function()
+      task.defer(recompute)
+    end)
+  end
+  task.defer(recompute)
+end
+
+for _, child in ipairs(pg:GetChildren()) do
+  if child:IsA 'ScreenGui' then
+    watchGui(child)
+  end
+end
+
 pg.ChildAdded:Connect(function(c)
+  if c:IsA 'ScreenGui' then
+    watchGui(c)
+  end
+end)
+
+pg.ChildRemoved:Connect(function(c)
   if c:IsA 'ScreenGui' and (c.Name == 'StashUI' or c.Name == 'PaperDollUI') then
-    c:GetPropertyChangedSignal('Enabled'):Connect(recompute)
     task.defer(recompute)
   end
 end)
